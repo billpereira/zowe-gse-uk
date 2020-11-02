@@ -34,8 +34,17 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Install Zowe CLI and setup profile
+        env:
+          ZOSMF_HOST: ${{ secrets.zosmf_host }}
+          ZOSMF_PORT: ${{ secrets.zosmf_port }} 
+          ZOSMF_USER: ${{ secrets.zosmf_user }}
+          ZOSMF_PSW:  ${{ secrets.zosmf_psw }}
         run: |
           node --version
           npm install -g @zowe/cli@zowe-v1-lts
           zowe --version
-        
+          zowe profiles cre zosmf-profile GSE --user $ZOSMF_USER --password $ZOSMF_PSW --host $ZOSMF_HOST --port $ZOSMF_PORT
+          echo "Files to upload"
+          ls -al JCL
+          zowe zos-files upload dir-to-pds "JCL" "Z01774.GSE.JCL"
+
