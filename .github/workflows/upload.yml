@@ -43,7 +43,7 @@ jobs:
           node --version
           npm install -g @zowe/cli@zowe-v1-lts
           zowe --version
-          zowe profiles cre zosmf-profile GSE --user $ZOSMF_USER --password $ZOSMF_PSW --host $ZOSMF_HOST --port $ZOSMF_PORT
+          zowe profiles cre zosmf-profile GSE --user $ZOSMF_USER --password $ZOSMF_PSW --host $ZOSMF_HOST --port $ZOSMF_PORT --reject-unauthorized false
           echo "Files to upload"
           ls -al JCL
           zowe zos-files upload dir-to-pds "JCL" "Z01774.GSE.JCL"

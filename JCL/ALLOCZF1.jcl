@@ -5,10 +5,10 @@
 //SYSUDUMP DD SYSOUT=*                                                  00014000
 //AMSDUMP DD SYSOUT=*                                                   00015000
 //SYSIN DD *                                                            00016000
-  DEFINE CLUSTER (NAME(SUPT.OMVS.ZD00.APPL.MVSSUPT) -                   00017000
+  DEFINE CLUSTER (NAME(SUPT.OMVS.LPAR.APPL.MVSSUPT) -                   00017000
   LINEAR TRACKS(10 15) SHAREOPTIONS(2)                                  00018000
 /*                                                                      00019000
 //FORMAT  EXEC PGM=IOEAGFMT,                                            00020000
-// PARM=('-aggregate SUPT.OMVS.ZD00.APPL.MVSSUPT -compat')              00030000
+// PARM=('-aggregate SUPT.OMVS.LPAR.APPL.MVSSUPT -compat')              00030000
 //SYSPRINT DD SYSOUT=*                                                  00040000
 /*                                                                      00050000
